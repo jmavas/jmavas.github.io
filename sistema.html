@@ -21,3 +21,22 @@
 </body>
 </html>
 
+<?php
+// Aquí deberías tener código para verificar las credenciales, por ejemplo, consultando una base de datos.
+// En un entorno real, deberías usar funciones de hash y protección contra SQL injection.
+
+$usuario_valido = 'usuario'; // Reemplaza con tu usuario válido
+$contrasena_valida = 'contrasena'; // Reemplaza con tu contraseña válida
+
+$usuario_ingresado = $_POST['username'];
+$contrasena_ingresada = $_POST['password'];
+
+if ($usuario_ingresado === $usuario_valido && $contrasena_ingresada === $contrasena_valida) {
+  // Inicio de sesión exitoso
+  echo "Inicio de sesión exitoso. Redirigiendo a la página principal...";
+  // Puedes redirigir a la página principal o hacer cualquier acción que necesites.
+} else {
+  // Credenciales incorrectas
+  echo "Usuario o contraseña incorrectos. Intenta nuevamente.";
+}
+?>
