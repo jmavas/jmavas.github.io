@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COORDINACION ACADEMICA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif,  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+      margin: 0;
+      padding: 0;
+      background-color: #e7da66;
+      
+    }
+
+    header {
+      background-color: #fd0505;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1c201d;
+      padding: 10px;
+    }
+
+    nav a {
+      color: rgb(248, 252, 5);
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 6rcap;
+    }
+
+    nav a:hover {
+      background-color: #45a049;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ACADEMIA PREUNIVERSITARIA KEPLER</h1>
+  <h1>Coordinación académica</h1>
+</header>
+
+<nav>
+  <a href="#">INICIO</a>
+  <a href="https://www.zipgrade.com/user/">INTRANET</a>
+  <a href="#">REPORTES</a>
+  <a href="https://drive.google.com/drive/folders/1T-NYFr5aDwWHOYBmMycNWCyQ6SleD2SN" target="_blank">SOLUCIONARIOS</a>
+  <a href="https://www.zipgrade.com/s/" target="_blank">PORTAL ESTUDIANTE</a>
+  <a href="https://nucleapp.com/app/65321b2a05cd4ad8ed17890b">APLICACIÓN KEPLER</a>
+  <a href="#">SALIR</a>
+</nav>
+<!-- El contenido principal de tu página va aquí -->
+
+</body>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+
+        #clock {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #080808;
+            background-color: #e3e703;
+            border: 2px solid #ee1b0c;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours() % 12 || 12; // Obtener la hora en formato 12 horas
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // Agregar un cero delante si el valor es menor que 10
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            var timeString = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("clock").innerText = timeString;
+        }
+
+        // Actualizar el reloj cada segundo
+        setInterval(updateClock, 1000);
+
+        // Inicializar el reloj al cargar la página
+        updateClock();
+    </script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Bienvenida</title>
+  <script>
+    function mostrarMensaje() {
+      // Muestra el mensaje
+      var mensaje = document.getElementById('mensajeBienvenida');
+      mensaje.style.display = 'block';
+
+      // Después de 5 segundos, oculta el mensaje
+      setTimeout(function () {
+        mensaje.style.display = 'none';
+      }, 5000);
+    }
+  </script>
+</head>
+<body onload="mostrarMensaje()">
+  <div id="mensajeBienvenida" style="display:none; text-align:center; padding: 10px; background-color: #fafafa;">
+    <p>Hola KEPLERIANOS, Sean bienvenidos al sistema de coordinación académica🤩🤩🤩🤩</p>
+  </div>
+
+  <!-- Agrega un botón para recargar la página -->
+  <button onclick="location.reload();">ACTUALIZAR SITIO</button>
+</body>
+</html>
+
+
+
+
+
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <title>Generador de Código QR</title>
+</head>
+<body>
+
+    <h1>Generador de Código QR para asistencia de</h1>
+
+    <!-- Formulario para ingresar datos -->
+    <form id="qrForm">
+        <label for="nombres">Nombres y Apellidos:</label>
+        <input type="text" id="nombres" required>
+
+        <label for="area">Área:</label>
+        <input type="text" id="area" required>
+
+        <label for="aula">Aula:</label>
+        <input type="text" id="aula" required>
+
+        <label for="ciclo">Ciclo:</label>
+        <input type="text" id="ciclo" required>
+
+        <button type="button" onclick="generarQR()">Generar QR</button>
+    </form>
+
+    <!-- Contenedor para mostrar el código QR generado -->
+    <div id="qrcode"></div>
+
+    <!-- Tabla para el historial -->
+    <h2>Historial</h2>
+    <table id="historial">
+        <thead>
+            <tr>
+                <th>Nombres y Apellidos</th>
+
+                <th>Área</th>
+
+                <th>Aula</th>
+
+                <th>Ciclo</th>
+                
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Botón para descargar historial en Excel -->
+    <button onclick="descargarExcel()">Descargar Excel</button>
+
+    <script>
+        // Función para generar el código QR
+        function generarQR() {
+            var nombres = document.getElementById('nombres').value;
+            var area = document.getElementById('area').value;
+            var aula = document.getElementById('aula').value;
+            var ciclo = document.getElementById('ciclo').value;
+
+            var datos = `${nombres}, ${area}, ${aula}, ${ciclo}`;
+
+            // Generar código QR
+            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: datos,
+                width: 128,
+                height: 128
+            });
+
+            // Agregar entrada al historial
+            agregarEntradaHistorial(nombres, area, aula, ciclo);
+        }
+
+        // Función para agregar una entrada al historial
+        function agregarEntradaHistorial(nombres, area, aula, ciclo) {
+            var table = document.getElementById('historial').getElementsByTagName('tbody')[0];
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            cell1.innerHTML = nombres;
+            cell2.innerHTML = area;
+            cell3.innerHTML = aula;
+            cell4.innerHTML = ciclo;
+        }
+
+        // Función para descargar historial en Excel
+        function descargarExcel() {
+            var table = document.getElementById('historial');
+            var sheetData = [
+                ["Nombres y Apellidos", "Área", "Aula", "Ciclo"]
+            ];
+
+            // Obtener datos de la tabla
+            for (var i = 0; i < table.rows.length; i++) {
+                var rowData = [];
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    rowData.push(table.rows[i].cells[j].innerHTML);
+                }
+                sheetData.push(rowData);
+            }
+
+            // Crear un libro de Excel
+            var wb = XLSX.utils.book_new();
+            var ws = XLSX.utils.aoa_to_sheet(sheetData);
+            XLSX.utils.book_append_sheet(wb, ws, "Historial");
+
+            // Descargar el archivo Excel
+            XLSX.writeFile(wb, "historial.xlsx");
+        }
+    </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Pequeño</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #datepicker {
+            font-size: 14px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Clic dentro del recuadro para ver la fecha: <input type="text" id="datepicker" readonly></p>
+
+    <script>
+        $(function() {
+            $("#datepicker").datepicker();
+        });
+    </script>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ingreso/Salida</title>
+    <!-- Agrega la biblioteca SheetJS para manipular archivos Excel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<h1>Registro de Ingreso/Salida</h1>
+
+<!-- Formulario de ingreso/salida -->
+<form id="registroForm">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+
+    <label for="accion">Acción:</label>
+    <select id="accion" required>
+        <option value="ingreso">Ingreso</option>
+        <option value="salida">Salida</option>
+    </select>
+
+    <button type="button" onclick="registrar()">Registrar</button>
+</form>
+
+<!-- Tabla de registros -->
+<table border="1" id="registros">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Los registros se agregarán aquí dinámicamente -->
+    </tbody>
+</table>
+
+<!-- Botón para exportar a Excel -->
+<button type="button" onclick="exportarExcel()">Exportar a Excel</button>
+
+<script>
+    // Arreglo para almacenar los registros
+    var registros = [];
+
+    // Función para registrar ingreso/salida
+    function registrar() {
+        var nombre = document.getElementById("nombre").value;
+        var accion = document.getElementById("accion").value;
+        var fecha = new Date().toLocaleString();
+
+        // Agregar el nuevo registro al arreglo
+        registros.push({ fecha, nombre, accion });
+
+        // Actualizar la tabla
+        actualizarTabla();
+
+        // Limpiar el formulario
+        document.getElementById("nombre").value = "";
+    }
+
+    // Función para actualizar la tabla con los registros actuales
+    function actualizarTabla() {
+        var tabla = document.getElementById("registros").getElementsByTagName('tbody')[0];
+        tabla.innerHTML = "";
+
+        registros.forEach(function (registro) {
+            var row = tabla.insertRow(-1);
+            var cellFecha = row.insertCell(0);
+            var cellNombre = row.insertCell(1);
+            var cellAccion = row.insertCell(2);
+
+            cellFecha.innerHTML = registro.fecha;
+            cellNombre.innerHTML = registro.nombre;
+            cellAccion.innerHTML = registro.accion;
+        });
+    }
+
+    // Función para exportar registros a Excel
+    function exportarExcel() {
+        /* Utilizamos SheetJS para crear un libro de Excel */
+        var wb = XLSX.utils.book_new();
+        var ws = XLSX.utils.json_to_sheet(registros);
+        XLSX.utils.book_append_sheet(wb, ws, "Registros");
+        /* Guardamos el libro en un archivo Excel y lo descargamos */
+        XLSX.writeFile(wb, 'registros.xlsx');
+    }
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botón Pegajoso</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sticky-btn {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #809602;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenido de la página -->
+  <div style="height: 50PX; background-color: #f2f2f2;">
+ 
+  </div>
+
+  <!-- Botón Pegajoso -->
+  <div class="sticky-btn" id="stickyBtn">
+    CERRAR SESIÓN   
+  </div>
+
+  <script>
+    // Funcionalidad del botón pegajoso
+    document.getElementById("stickyBtn").addEventListener("click", function() {
+      // Aquí puedes agregar la lógica para cerrar sesión y redirigir a la página de login
+      // Por ejemplo, podrías redirigir a una página llamada login.html
+      window.location.href = "file:///D:/TOTAL%20ARCHIVOS/ACADEMIA%20PREUNIVERSITARIA%20KEPLER/PROGRAMA/index.html";
+    });
+  </script>
+</body>
+</html>
